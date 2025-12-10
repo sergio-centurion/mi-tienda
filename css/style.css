@@ -1,0 +1,107 @@
+/* 1.selector universal:Reseteamos los márgenes que no quede espacios raros */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;/*Esto auyda a que laas cajas no cambien de tamaño al agregar*/
+}
+
+/*2.Body: Definimos la fuente general de toda la página */
+body {
+    font-family: Arial, sans-serif; /*Tipografia basica y legible */
+    background-color: #f4f4f4;/*un gris muy clarito de fondo */
+}
+
+/*3. Header: le damos estilo a la cabecera */
+
+header{
+    background-color: #2c3e50;
+    color: white;/*Texto blanco para que resalte*/
+    padding: 20%;/*Espacio interno para que el texto no toque los bordes */
+    text-align: center;/*Centramos todo*/
+}
+
+/*4. Navegacion: quitamos los puntos feos de la lista*/
+nav ul {
+    list-style: none;/*Chau viñeta (puntitos)*/
+    padding: 0%;
+    /*Esto pone los items en fila horizontales*/
+    display: flex;
+    justify-content: center;/*los centra*/
+    gap: 30px;/*Espacio entre cada enlace*/
+}
+/*5. Enlaces: Hacemos que los link se vean bien */
+nav ul li a {
+    text-decoration: none ; /*quitamos el subrayado azul tipico*/
+    color: #f4f4f4;/*un color casi blanco*/
+    font-size: 18px;/*texto un poco mas grande*/
+    font-weight: bold;/*letra en negrita*/
+}
+/*Estilo por el titulo d sección*/
+h2 {
+    text-align: center;
+    color: #333;
+    margin: 20px 0;
+}
+
+/* El contenedor padre(la magia de flexbox - clase 6)*/
+.contenedor-productos{
+    display:flex;/*Activa el modo flexible*/
+    flex-wrap: wrap;/*sino entran en una linea, bajan a la siguiente*/
+    justify-content: center;/*centra las tarjetas en la pantalla*/
+    gap: 20px;/*espacio entre tarjeta y tarjeta*/
+    padding: 20px;
+}
+
+/*LAS TARJETAS (Hijos)*/
+.card {
+    background-color: white;
+    border:1px solid #ddd;/*borde gris suave */
+    border-radius: 8px;/*bordes redondeados*/
+    width: 200px;/*ancho fijo para cada tarjeta*/
+    padding: 15px;/*Espacio interno */
+    text-align: center;/*Todo el texto centrado*/
+    box-shadow: 0 4px 8px rgba(0,0,0,0,1);/*sombrita coqueta*/
+}
+/*Imagen dentro de la tarjeta*/
+.card img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/*Botón de compra */
+.card button {
+    background-color: #27ae60; /* verde compra */
+    color: white;
+    border: none;
+    padding: 10px 15px;   /* Manito al pasar el mouse*/
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+
+}
+
+.card button:hover {
+    background-color: #0b331c;/*verde mas oscuro al pasar el mouse*/
+}
+/*----MEDIA QUERIES---*/
+/*Breakpoint: estilo para pantallas menores a 768px(tablets verticales y celulares)*/
+@media (max-width: 768px) {
+    /*1 .cambiamos el menú a vertical para que sea más fácil tocar con el dedo*/
+    nav ul {
+        flex-direction: column;/*pone los items uno de bajo del otro*/
+        gap: 15px;/*Reduce un poco el espacio*/
+    }
+    h1 {/*ajustamos el titulo para que no sea gigante en el celular*/
+        font-size: 24px;
+    }
+    /* 3 Ajustamos las tarjetas para que ocupen casi todo el ancho*/
+    .card {
+        width: 90%;/*ocupa el 90% del ancho de la pantalla*/
+    }
+    /*4. Ajustamos el contenedor paraque centre todo en una sola columna*/
+    .contenedor-productos{
+        flex-direction: column;/*Tarjetas una de bajo de la otra*/
+        align-items: center;/*Centramos */
+    }
+
+}
